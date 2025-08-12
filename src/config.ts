@@ -17,4 +17,8 @@ export const config = {
 	supportedLanguages: process.env.SUPPORTED_LANGUAGES
 		? process.env.SUPPORTED_LANGUAGES.split(",").map((l) => l.trim())
 		: ["en"],
+	defaultLevel: process.env.DEFAULT_LEVEL || "intermediate",
+	supportedLevels: process.env.SUPPORTED_LEVELS
+		? process.env.SUPPORTED_LEVELS.split(",").map((l) => l.trim())
+		: ["beginner", "basic", "intermediate", "advanced", "expert"],
 };
