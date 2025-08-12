@@ -68,13 +68,14 @@ Is this answer correct? Answer only "yes" or "no".
 You are a quiz judge. For each question, verify if the user's answer is correct or not. Respond ONLY with a JSON array of objects with these keys:
 
 - id: question id (number)
+- question: question without options, just the question (string)
 - isCorrect: true or false (boolean)
-- userAnswer: include only if isCorrect is false, with the original user's answer as a string
+- userAnswer: original user's answer (string)
 
 Example:
 
 [
-  { "id": 1, "isCorrect": true },
+  { "id": 1, "isCorrect": true, "userAnswer": "Option 2" },
   { "id": 2, "isCorrect": false, "userAnswer": "Option 3" }
 ]
 
