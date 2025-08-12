@@ -13,8 +13,9 @@ export const generateQuiz = async (
 	const prompt = `
 Generate a quiz with between 10 and 15 questions about the following topic: ${topic}.
 Language: ${language}.
-The questions should be adapted to the difficulty level: ${level}.
-Return the response ONLY in JSON format following exactly this structure:
+Difficulty level: ${level}.
+
+Return ONLY a JSON object with the structure:
 
 {
   "topic": "Received topic",
@@ -33,11 +34,11 @@ Return the response ONLY in JSON format following exactly this structure:
 }
 
 Rules:
-- All questions and options must be written in ${language}.
-- Do NOT include any text outside the JSON.
-- Do NOT include the correct answers or explanations.
-- Each question must have exactly 4 options.
-- Use incremental IDs starting at 1.
+- Questions and options must be in ${language}.
+- Exactly 4 options per question.
+- IDs must be numeric and sequential starting from 1.
+- NO explanations, NO correct answers included.
+- Return compact JSON with no extra text or line breaks.
 `;
 
 	const completion = await openai.chat.completions.create({
