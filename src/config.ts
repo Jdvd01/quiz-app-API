@@ -12,7 +12,8 @@ function requiredEnv(name: string): string {
 
 export const config = {
 	openaiApiKey: requiredEnv("OPENAI_API_KEY"),
-	port: process.env.PORT ? parseInt(process.env.PORT) : 3000,
+	port: process.env.PORT ? parseInt(process.env.PORT) : 3001,
+	frontendUrl: process.env.FRONTEND_URL || "http://localhost:4321",
 	defaultLanguage: process.env.DEFAULT_LANGUAGE || "en",
 	supportedLanguages: process.env.SUPPORTED_LANGUAGES
 		? process.env.SUPPORTED_LANGUAGES.split(",").map((l) => l.trim())

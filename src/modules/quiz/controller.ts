@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { generateQuiz, verifyAnswers } from "./service";
-import { stringify } from "querystring";
 
 export async function getQuiz(req: Request, res: Response) {
 	try {
@@ -30,6 +29,8 @@ export async function verifyQuiz(req: Request, res: Response) {
 		).length;
 		const incorrectCount = total - correctCount;
 		const percentage = total > 0 ? (correctCount / total) * 100 : 0;
+
+		console.log("response");
 
 		res.json({
 			total,
